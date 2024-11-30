@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Collections</title>
+
+    <!-- Bootstrap CSS for styling the page using predefined styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons for adding icons like search, edit, etc. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* General body styles */
+        body {
+            background-color: #faf7f2;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Styles for heading elements */
+        h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #5a3e2b;
+        }
+
+        /* Anchor link styles */
+        a {
+            color: #5a3e2b;
+            text-decoration: none;
+        }
+
+        /* Hover effect for anchor links */
+        a:hover {
+            color: #3e2b1e;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #5a3e2b;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 36px;
+            letter-spacing: 4px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 16px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Navbar link hover effect */
+        .navbar-nav .nav-link:hover {
+            color: #e0c097;
+        }
+
+        /* Hero section style - large banner section */
+        .hero-section {
+            background-color: #5a3e2b;
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Hero title styling */
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Container for displaying the items */
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        /* Styles for individual item cards */
+        .item-card {
+            width: 250px;
+            border: 1px solid #e0c097;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for item cards */
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Image styling inside item card */
+        .item-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #e0c097;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        /* Title styling inside item card */
+        .item-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #5a3e2b;
+        }
+
+        /* Paragraph styling for item details */
+        .item-card p {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Primary button styling */
+        .btn-primary {
+            background-color: #5a3e2b;
+            border-color: #5a3e2b;
+        }
+
+        /* Hover effect for primary button */
+        .btn-primary:hover {
+            background-color: #3e2b1e;
+            border-color: #3e2b1e;
+        }
+
+        /* Warning button styling (for editing items) */
+        .btn-warning {
+            background-color: #e0c097;
+            border: none;
+        }
+
+        /* Hover effect for warning button */
+        .btn-warning:hover {
+            background-color: #caa377;
+        }
+
+        /* Danger button styling (for deleting items) */
+        .btn-danger {
+            background-color: #8b2f2f;
+            border: none;
+        }
+
+        /* Hover effect for danger button */
+        .btn-danger:hover {
+            background-color: #691e1e;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #5a3e2b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Footer links styling */
+        footer a {
+            color: #e0c097;
+        }
+
+        /* Footer link hover effect */
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .item-card {
+                width: 100%; /* Make item cards full width on smaller screens */
+            }
+
+            /* Adjust hero section text size on small screens */
+            .hero-section h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm mb-4">
+        <div class="container">
+            <!-- Brand name and link to the homepage -->
+            <a class="navbar-brand" href="#">Purano माल</a>
+
+            <!-- Toggle button for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./create">List New Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <!-- Welcome Message Section -->
+        <h2 class="text-center mb-4 text-secondary">Welcome to the World of Vintage</h2>
+
+        <!-- Heading for product listing -->
+        <h3 class="mb-3">List of Your Vintage Products</h3>
+
+        <!-- Search Form Section -->
+        <h4 class="mb-3">Search by Name</h4>
+        <div class="form-container mb-4">
+            <form action="/getbyname" method="get" class="d-flex">
+                <input type="text" name="item_name" id="item_name" class="form-control" placeholder="Enter the name of item" required>
+                <button type="submit" class="btn btn-primary ms-2"><i class="fas fa-search"></i> Submit</button>
+            </form>
+        </div>
+
+        <!-- Display items if available -->
+        <% if (newVintage && newVintage.length > 0) { %>
+            <div class="items-container">
+                <% newVintage.forEach(item => { %>
+                    <!-- Item Card displaying each product -->
+                    <div class="item-card">
+                        <img src="<%= item.image_url %>" alt="<%= item.item_name %>" width="200" />
+                        <h3><%= item.item_name %></h3>
+                        <p><strong>Manufactured Year:</strong> <%= item.item_year %></p>
+                        <p><strong>Status:</strong> <%= item.item_status %></p>
+                        <p><strong>Price:</strong> $<%= item.item_price %></p>
+                        <p><strong>Description:</strong> <%= item.item_description %></p>
+
+                        <!-- Buttons for updating and deleting items -->
+                        <a href="./edit/<%= item._id %>" class="btn btn-warning mb-2"><i class="fas fa-edit"></i> Update</a>
+
+                        <form action="/delete/<%= item._id %>" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p class="text-center">No items found. Add some!</p>
+        <% } %>
+
+        <!-- Button to add new items -->
+        <div class="text-center mt-4">
+            <a href="./create" class="btn btn-success"><i class="fas fa-plus-circle"></i> List New Items</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Purano माल | All rights reserved.</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

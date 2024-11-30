@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport settings for responsive design -->
+    <title>Post Item</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons for use in the page -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Styles for the Body */
+        body {
+            background-color: #faf7f2; /* Light background color */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px; /* Set the maximum width of the container */
+            margin-top: 60px; /* Add space on top */
+        }
+
+        /* Style for the form container */
+        .form-container {
+            background-color: #ffffff; /* White background */
+            padding: 30px; /* Add padding */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            border: 1px solid #e0c097; /* Light border color */
+        }
+
+        /* Title style */
+        .form-title {
+            font-size: 30px;
+            text-align: center; /* Center align the title */
+            margin-bottom: 20px;
+            color: #5a3e2b; /* Dark brown color */
+        }
+
+        .form-label {
+            font-weight: bold; /* Bold labels for form fields */
+        }
+
+        .form-control {
+            border-radius: 20px; /* Rounded input fields */
+            margin-bottom: 20px; /* Space between inputs */
+            border: 1px solid #ccc; /* Light border for inputs */
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5); /* Blue focus effect */
+            border-color: #007bff; /* Blue border on focus */
+        }
+
+        /* Custom button styles */
+        .btn-custom {
+            background-color: #5a3e2b; /* Dark brown button */
+            color: white; /* White text */
+            border-radius: 20px; /* Rounded button */
+            padding: 12px 20px; /* Padding inside the button */
+            width: 100%; /* Full width */
+            font-size: 16px; /* Font size for text */
+            border: none; /* Remove border */
+        }
+
+        .btn-custom:hover {
+            background-color: #3e2b1e; /* Darker brown on hover */
+        }
+
+        .form-group i {
+            position: absolute; /* Position icons inside the input fields */
+            right: 10px;
+            top: 10px;
+            color: #007bff; /* Blue icon color */
+        }
+
+        /* Navbar styles */
+        .navbar {
+            margin-bottom: 30px; /* Bottom margin for spacing */
+            background-color: #5a3e2b; /* Dark brown navbar */
+        }
+
+        .nav-link {
+            font-size: 16px;
+            color:white; /* White text for navbar links */
+        }
+
+        .nav-link:hover {
+            color: #3e2b1e; /* Darker color on hover */
+        }
+
+        .navbar-brand {
+            color: #fff; /* White brand text */
+            font-size: 32px; /* Larger font size for brand */
+            letter-spacing: 4px; /* Add spacing between letters */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #5a3e2b; /* Dark brown footer */
+            color: white; /* White text */
+            padding: 20px; /* Padding for the footer */
+            text-align: center; /* Center align the footer content */
+        }
+
+        footer a {
+            color: #e0c097; /* Light brown color for links */
+        }
+
+        footer a:hover {
+            color: #fff; /* Change link color to white on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">Purano माल</a> <!-- Brand name on the navbar -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./">Home</a> <!-- Home link -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./create">List New Items</a> <!-- Link to create items -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a> <!-- About page link -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a> <!-- Contact page link -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title">Post Item Information <i class="fas fa-tag"></i></h2> <!-- Title of the form -->
+
+            <!-- Form for posting item details -->
+            <form action="/create" method="post" id="item_form">
+                <div class="form-group position-relative">
+                    <label for="name" class="form-label">Name of the Item</label>
+                    <input type="text" name="item_name" id="name" class="form-control" placeholder="Enter item name" required>
+                    <i class="fas fa-tag"></i> <!-- Icon for item name -->
+                </div>
+
+                <div class="form-group position-relative">
+                    <label for="price" class="form-label">Price of the Item</label>
+                    <input type="number" name="item_price" id="price" class="form-control" placeholder="Enter item price" required>
+                    <i class="fas fa-dollar-sign"></i> <!-- Icon for price -->
+                </div>
+
+                <div class="form-group position-relative">
+                    <label for="year" class="form-label">Manufactured Year</label>
+                    <input type="date" name="item_date" id="year" class="form-control" required>
+                    <i class="fas fa-calendar-alt"></i> <!-- Icon for manufactured year -->
+                </div>
+
+                <div class="form-group position-relative">
+                    <label for="status" class="form-label">Status</label>
+                    <input type="text" name="item_status" id="status" class="form-control" placeholder="Enter item status" required>
+                    <i class="fas fa-check-circle"></i> <!-- Icon for status -->
+                </div>
+
+                <div class="form-group position-relative">
+                    <label for="image_url" class="form-label">Image URL</label>
+                    <input type="url" name="image_url" id="image_url" class="form-control" placeholder="Enter the image URL" required>
+                    <i class="fas fa-link"></i> <!-- Icon for image URL -->
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="form-label">Product Description</label>
+                    <textarea rows="4" name="item_description" id="description" class="form-control" placeholder="Enter a brief description of your product" required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-custom">
+                    <i class="fas fa-paper-plane"></i> Post Your Information
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Purano माल | All rights reserved.</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
